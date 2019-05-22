@@ -26,13 +26,25 @@
                 });
             }
 
-            handleMouseOver(e){
+            handleMouseOver = (e)=>{
                 console.log(e.target,e.pageX,e.pageY);
             }
 
             handleCopy(e){
                 console.log("Please don't steal!")
             }
+
+            handleSubmit = (e) => {
+                e.preventDefault();
+                console.log("form Submitted",this.state.name);
+            }
+
+            handleChange = (e) =>{
+                this.setState({
+                    name: e.target.value
+                })
+            }
+
             render(){
                 return(
                     <div className="app-content" >
@@ -41,6 +53,10 @@
                     <button onClick={this.handleClick} >Click Me</button>
                     <button onMouseOver={this.handleMouseOver} >Hover Me</button>
                     <p onCopy={this.handleCopy}>There is no substitute for hardwork</p>
+                    <form onSubmit={this.handleSubmit}>
+                    <input type="text" onChange = {this.handleChange} />
+                    <button>Submit</button>
+                    </form>
                     </div>
                 )
             }
