@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import Todos from './Todos';
 import AddTodo from './AddTodo';
+import Navbar from './components/Navbar';
+import { BrowserRouter , Link } from 'react-router-dom';
+import Home from './components/Home';
+import About from './components/About';
+import Contact from './components/Contact';
+// import {Route} from 'react-route';
+
+
 
 
 
@@ -31,11 +39,18 @@ this.setState({
 
   render(){
   return (
-    <div className="todo-app container">
-     <h1 className="center blue-text"> Todo's </h1>
+    <BrowserRouter >
+    <div className="todo-app container center">
+    <Navbar />
+    {/* <h1 className="center blue-text"> Todo's </h1>
      <Todos todos={this.state.todos} deleteTodo={this.deleteTodo}/>
-     <AddTodo addTodo={this.addTodo}/>
+     <AddTodo addTodo={this.addTodo}/> */}
+    <Link to ='/' Component={Home} />
+    <Link to='/About' Component={About} />
+    <Link to='/Contact' Component={Contact} />
+     
     </div>
+    </BrowserRouter> 
   );
   }
 }
