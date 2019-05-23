@@ -42,9 +42,9 @@ this.setState({
     <BrowserRouter >
     <div className="todo-app container center">
     <Navbar />
-    {/* <h1 className="center blue-text"> Todo's </h1>
+    <h1 className="center blue-text"> Todo's </h1>
      <Todos todos={this.state.todos} deleteTodo={this.deleteTodo}/>
-     <AddTodo addTodo={this.addTodo}/> */}
+     <AddTodo addTodo={this.addTodo}/>
     <Link to ='/' Component={Home} />
     <Link to='/About' Component={About} />
     <Link to='/Contact' Component={Contact} />
