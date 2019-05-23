@@ -15,19 +15,38 @@ class App extends Component {
   }
  
   addEntries = (add) => {
-    add.id = Math.random();
+    add.id = Math.floor((Math.random()*10));
     let vogue = [...this.state.vogue, add];
     this.setState({
       vogue: vogue
     })
   }
 
+  delEntries = (id) => {
+    console.log(id);
+    let vogue = this.state.vogue.filter(v => {
+    return v.id !== id;
+    }) ;
+  this.setState({
+    vogue: vogue})
+  }
+componentDidMount() {
+  console.log("Component Mounted");
+}
+
+componentDidUpdate(prevProps, prevState) {
+  console.log("component Updated");
+  console.log(prevProps, prevState);
+}
+
+
   render(){
     return (
       <div className="App">
         <h4> Welcome to Root Component </h4>
-        <First vogue = {this.state.vogue}/>
+        <First vogue = {this.state.vogue} delEntries={this.delEntries}/>
         <AddEntries addEntries={this.addEntries}/>
+        
         
       </div>
     );
